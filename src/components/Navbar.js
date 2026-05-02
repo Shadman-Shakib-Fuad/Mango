@@ -1,7 +1,10 @@
 "use client";
 import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
+
   return (
     <div className="navbar bg-base-100 shadow px-6">
 
@@ -18,9 +21,18 @@ export default function Navbar() {
       </div>
 
       <div>
-        <Link href="/login" className="btn btn-sm btn-primary">
-          Login
-        </Link>
+        {user ? (
+          <div className="flex gap-2 items-center">
+            <span className="font-semibold">{user.name}</span>
+            <button onClick={logout} className="btn btn-sm btn-error">
+              Logout
+            </button>
+          </div>
+        ) : (
+          <Link href="/login" className="btn btn-sm btn-primary">
+            Login
+          </Link>
+        )}
       </div>
 
     </div>
