@@ -3,9 +3,36 @@
     "id": "1",
     "title": "The Future of AI",
     "author": "John Smith",
-    "description": "A deep dive into AI",
+    "description": "A deep dive into AI and future technology.",
     "category": "Tech",
     "available_quantity": 5,
-    "image_url": "https://i.ibb.co/AIbook.jpg"
+    "image_url": "https://images.unsplash.com/photo-1518770660439-4636190af475"
+  },
+  {
+    "id": "2",
+    "title": "Space Science",
+    "author": "Elon Star",
+    "description": "Explore the universe and beyond.",
+    "category": "Science",
+    "available_quantity": 3,
+    "image_url": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa"
+  },
+  {
+    "id": "3",
+    "title": "Mystery Island",
+    "author": "A. Conan",
+    "description": "A thrilling mystery story.",
+    "category": "Story",
+    "available_quantity": 7,
+    "image_url": "https://images.unsplash.com/photo-1528207776546-365bb710ee93"
+  },
+  {
+    "id": "4",
+    "title": "Learning React",
+    "author": "Mark Lee",
+    "description": "Complete guide to React.",
+    "category": "Tech",
+    "available_quantity": 6,
+    "image_url": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97"
   }
 ]
