@@ -1,19 +1,19 @@
 "use client";
-import { useAuth } from "../context/AuthContext";
+
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function PrivateRoute({ children }) {
-  const { user } = useAuth();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) {
-      router.push("/login");
-    }
-  }, [user]);
+    if (status === "loading") return;
+    if (!session) router.push("/");
+  }, [session, status]);
 
-  if (!user) return null;
+  if (!session) return null;
 
   return children;
 }
