@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { AuthProvider } from "../context/AuthContext";
 
 export const metadata = {
   title: "Mango Library",
@@ -11,13 +12,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
 
-        <Navbar />
-
-        <main className="min-h-screen">
-          {children}
-        </main>
-
-        <Footer />
+        <AuthProvider>
+          <Navbar />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </AuthProvider>
 
       </body>
     </html>
