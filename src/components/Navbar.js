@@ -1,9 +1,10 @@
 "use client";
+
 import Link from "next/link";
-import { useAuth } from "../context/AuthContext";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Navbar() {
-  const { user, logout } = useAuth();
+  const { data: session } = useSession();
 
   return (
     <div className="navbar bg-base-100 shadow px-6">
@@ -21,17 +22,17 @@ export default function Navbar() {
       </div>
 
       <div>
-        {user ? (
+        {session ? (
           <div className="flex gap-2 items-center">
-            <span className="font-semibold">{user.name}</span>
-            <button onClick={logout} className="btn btn-sm btn-error">
+            <span>{session.user.name}</span>
+            <button onClick={() => signOut()} className="btn btn-sm btn-error">
               Logout
             </button>
           </div>
         ) : (
-          <Link href="/login" className="btn btn-sm btn-primary">
+          <button onClick={() => signIn("google")} className="btn btn-primary btn-sm">
             Login
-          </Link>
+          </button>
         )}
       </div>
 
