@@ -1,20 +1,18 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import PrivateRoute from "../../components/PrivateRoute";
-import { useAuth } from "../../context/AuthContext";
 
 export default function Profile() {
-  const { user } = useAuth();
+  const { data: session } = useSession();
 
   return (
     <PrivateRoute>
       <div className="p-10">
         <h1 className="text-2xl font-bold">My Profile</h1>
 
-        <div className="mt-4 space-y-2">
-          <p><b>Name:</b> {user?.name}</p>
-          <p><b>Email:</b> {user?.email}</p>
-        </div>
+        <p>Name: {session?.user?.name}</p>
+        <p>Email: {session?.user?.email}</p>
       </div>
     </PrivateRoute>
   );
