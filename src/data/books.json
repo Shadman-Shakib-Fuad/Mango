@@ -1,0 +1,11 @@
+[
+  {
+    "id": "1",
+    "title": "The Future of AI",
+    "author": "John Smith",
+    "description": "A deep dive into AI",
+    "category": "Tech",
+    "available_quantity": 5,
+    "image_url": "https://i.ibb.co/AIbook.jpg"
+  }
+]
