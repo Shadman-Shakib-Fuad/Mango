@@ -1,24 +1,18 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { AuthProvider } from "../context/AuthContext";
-
-export const metadata = {
-  title: "Mango Library",
-};
+import { SessionProvider } from "next-auth/react";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
 
-        <AuthProvider>
+        <SessionProvider>
           <Navbar />
-          <main className="min-h-screen">
-            {children}
-          </main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
-        </AuthProvider>
+        </SessionProvider>
 
       </body>
     </html>
