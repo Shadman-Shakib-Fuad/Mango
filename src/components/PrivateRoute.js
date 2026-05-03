@@ -10,8 +10,15 @@ export default function PrivateRoute({ children }) {
 
   useEffect(() => {
     if (status === "loading") return;
-    if (!session) router.push("/");
-  }, [session, status]);
+
+    if (!session) {
+      router.push("/login");
+    }
+  }, [session, status, router]);
+
+  if (status === "loading") {
+    return <div className="p-10">Loading...</div>;
+  }
 
   if (!session) return null;
 

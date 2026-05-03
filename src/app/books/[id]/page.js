@@ -1,29 +1,47 @@
-import books from "../../../data/books.json";
+"use client";
 
-export default async function BookDetails({ params }) {
+import { useState } from "react";
+import booksData from "../../../data/books.json";
 
-  // ✅ FIX 1: params await করতে হবে
-  const { id } = await params;
+export default function BookDetails({ params }) {
 
-  // ✅ FIX 2: id string ensure কর
+  const id = params.id;
+
+  const [books, setBooks] = useState(booksData);
+
   const book = books.find(b => b.id === id);
 
-  // ✅ FIX 3: safety check (important)
-  if (!book) {
-    return <h1 className="p-10 text-red-500">Book Not Found</h1>;
-  }
+  if (!book) return <h1 className="p-10">Book Not Found</h1>;
+
+  const handleBorrow = () => {
+    if (book.available_quantity > 0) {
+      const updated = books.map(b =>
+        b.id === id
+          ? { ...b, available_quantity: b.available_quantity - 1 }
+          : b
+      );
+      setBooks(updated);
+    } else {
+      alert("No copies left");
+    }
+  };
 
   return (
     <div className="p-10 grid md:grid-cols-2 gap-6">
-      <img src={book.image_url} alt={book.title} />
+      <img src={book.image_url} />
 
       <div>
         <h1 className="text-3xl font-bold">{book.title}</h1>
-        <p className="mt-2">Author: {book.author}</p>
-        <p className="mt-2">{book.description}</p>
-        <p className="mt-2">{book.available_quantity} copies left</p>
+        <p>{book.author}</p>
+        <p>{book.description}</p>
 
-        <button className="btn mt-4">Borrow</button>
+        <p className="text-primary font-bold">
+          {book.available_quantity} copies left
+        </p>
+
+        <button onClick={handleBorrow} className="btn btn-success mt-4">
+          Borrow
+        </button>
       </div>
     </div>
   );
