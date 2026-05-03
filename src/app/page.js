@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
 
-      {/* Banner */}
+      {}
       <div className="py-20 text-center">
         <h1 className="text-5xl font-bold">Find Your Next Book</h1>
         <Link href="/books">
@@ -16,21 +16,21 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* MARQUEE */}
+      {}
       <div className="bg-primary text-white py-2 overflow-hidden whitespace-nowrap">
         <div className="animate-marquee">
           📚 New Arrivals: Atomic Habits | Deep Work | Clean Code | Sapiens | Special Offers Available!
         </div>
       </div>
 
-      {/* BOOKS */}
+      {}
       <div className="p-6 grid md:grid-cols-3 gap-6">
         {books.slice(0,6).map(book => (
           <BookCard key={book.id} book={book} />
         ))}
       </div>
 
-      {/* 🔥 ARTICLE SECTION */}
+      {}
       <div className="mt-16 px-6 space-y-16">
 
         <h2 className="text-4xl font-bold text-center">

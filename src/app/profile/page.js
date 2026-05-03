@@ -1,6 +1,7 @@
 "use client";
 
 import { useAuth } from "../../context/AuthContext";
+import Link from "next/link";
 
 export default function Profile() {
 
@@ -20,6 +21,13 @@ export default function Profile() {
 
       <h1 className="text-3xl mt-4">{user.name}</h1>
       <p>{user.email}</p>
+
+      {}
+      <Link href="/profile/update">
+        <button className="btn btn-primary mt-6 hover:scale-105 transition">
+          Update Profile
+        </button>
+      </Link>
 
     </div>
   );
