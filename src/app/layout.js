@@ -1,4 +1,5 @@
 import "./globals.css";
+import "animate.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -9,8 +10,7 @@ export default function RootLayout({ children }) {
 
         <Navbar />
 
-        {}
-        <div className="pt-20 flex-grow">
+        <div className="pt-20 flex-grow animate__animated animate__fadeIn">
           {children}
         </div>
 

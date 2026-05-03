@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "mongodb": "^7.2.0",
     "next": "16.2.4",
     "next-auth": "^4.24.14",

@@ -18,7 +18,7 @@ export default function Books() {
   return (
     <div className="p-6 grid md:grid-cols-4 gap-6">
 
-      {/* Sidebar */}
+      {}
       <div className="space-y-4">
 
         <input
@@ -36,7 +36,7 @@ export default function Books() {
 
       </div>
 
-      {/* Books */}
+      {}
       <div className="md:col-span-3 grid md:grid-cols-3 gap-6">
         {filteredBooks.map(book => (
           <BookCard key={book.id} book={book} />
