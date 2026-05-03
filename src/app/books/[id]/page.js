@@ -1,17 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import booksData from "../../../data/books.json";
 
 export default function BookDetails({ params }) {
 
-  const id = params.id;
-
+  const [id, setId] = useState(null);
   const [books, setBooks] = useState(booksData);
+
+  useEffect(() => {
+    async function getId() {
+      const p = await params;
+      setId(p.id);
+    }
+    getId();
+  }, [params]);
 
   const book = books.find(b => b.id === id);
 
-  if (!book) return <h1 className="p-10">Book Not Found</h1>;
+  if (!book) {
+    return <h1 className="p-10 text-red-500">Loading...</h1>;
+  }
 
   const handleBorrow = () => {
     if (book.available_quantity > 0) {
@@ -22,20 +31,20 @@ export default function BookDetails({ params }) {
       );
       setBooks(updated);
     } else {
-      alert("No copies left");
+      alert("No copies left!");
     }
   };
 
   return (
     <div className="p-10 grid md:grid-cols-2 gap-6">
-      <img src={book.image_url} />
+      <img src={book.image_url} className="rounded shadow" />
 
       <div>
         <h1 className="text-3xl font-bold">{book.title}</h1>
         <p>{book.author}</p>
-        <p>{book.description}</p>
+        <p className="mt-2">{book.description}</p>
 
-        <p className="text-primary font-bold">
+        <p className="text-primary font-bold mt-2">
           {book.available_quantity} copies left
         </p>
 

@@ -25,32 +25,50 @@ export default function Home() {
 
       {}
       <div className="p-10 bg-base-200 mt-10">
-        <h2 className="text-3xl font-bold text-center mb-6">Famous Readers</h2>
+        <h2 className="text-3xl font-bold text-center mb-6">
+          Famous Readers & Writers
+        </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="space-y-10">
 
-          <div className="card bg-base-100 shadow">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" />
-            <div className="p-4">
-              <h3 className="font-bold">Elon Musk</h3>
-              <p>Reads science & tech books daily.</p>
-            </div>
+          {}
+          <div className="flex flex-col md:flex-row gap-6 items-center">
+            <img
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+              className="w-60 rounded"
+            />
+            <p>
+              Elon Musk often emphasizes the importance of reading books in his life.
+              He learned rocket science by reading books and applying knowledge.
+              Books shaped his thinking and innovation journey. He believes that
+              continuous learning through reading is the key to success.
+            </p>
           </div>
 
-          <div className="card bg-base-100 shadow">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" />
-            <div className="p-4">
-              <h3 className="font-bold">Emma Watson</h3>
-              <p>Book lover & feminist reader.</p>
-            </div>
+          {}
+          <div className="flex flex-col md:flex-row gap-6 items-center">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+              className="w-60 rounded"
+            />
+            <p>
+              Emma Watson is known for her love of literature and books.
+              She started a global feminist book club and encourages people
+              to read more. Books helped her grow intellectually and emotionally.
+            </p>
           </div>
 
-          <div className="card bg-base-100 shadow">
-            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" />
-            <div className="p-4">
-              <h3 className="font-bold">Bill Gates</h3>
-              <p>Reads 50+ books per year.</p>
-            </div>
+          {}
+          <div className="flex flex-col md:flex-row gap-6 items-center">
+            <img
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9"
+              className="w-60 rounded"
+            />
+            <p>
+              Bill Gates reads around 50 books every year. He shares book
+              recommendations and believes reading helps expand thinking,
+              improve focus, and develop ideas that can change the world.
+            </p>
           </div>
 
         </div>
