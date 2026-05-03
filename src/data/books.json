@@ -8,5 +8,11 @@
   { "id": "7", "title": "Think and Grow Rich", "author": "Napoleon Hill", "description": "Success mindset", "category": "Story", "available_quantity": 6, "image_url": "https://covers.openlibrary.org/b/id/8231996-L.jpg" },
   { "id": "8", "title": "The Pragmatic Programmer", "author": "Andrew Hunt", "description": "Programming guide", "category": "Tech", "available_quantity": 2, "image_url": "https://covers.openlibrary.org/b/id/8091016-L.jpg" },
   { "id": "9", "title": "Sapiens", "author": "Yuval Noah Harari", "description": "Human history", "category": "Science", "available_quantity": 6, "image_url": "https://covers.openlibrary.org/b/id/9259251-L.jpg" },
-  { "id": "10", "title": "Zero to One", "author": "Peter Thiel", "description": "Startup thinking", "category": "Tech", "available_quantity": 5, "image_url": "https://covers.openlibrary.org/b/id/8235116-L.jpg" }
+  { "id": "10", "title": "Zero to One", "author": "Peter Thiel", "description": "Startup thinking", "category": "Tech", "available_quantity": 5, "image_url": "https://covers.openlibrary.org/b/id/8235116-L.jpg" },
+
+  { "id": "11", "title": "The Power of Habit", "author": "Charles Duhigg", "description": "Habit science", "category": "Story", "available_quantity": 4, "image_url": "https://covers.openlibrary.org/b/id/6979861-L.jpg" },
+  { "id": "12", "title": "Start With Why", "author": "Simon Sinek", "description": "Leadership mindset", "category": "Tech", "available_quantity": 3, "image_url": "https://covers.openlibrary.org/b/id/8167891-L.jpg" },
+  { "id": "13", "title": "The Lean Startup", "author": "Eric Ries", "description": "Startup growth", "category": "Tech", "available_quantity": 5, "image_url": "https://covers.openlibrary.org/b/id/6979862-L.jpg" },
+  { "id": "14", "title": "Educated", "author": "Tara Westover", "description": "Memoir story", "category": "Story", "available_quantity": 4, "image_url": "https://covers.openlibrary.org/b/id/9259252-L.jpg" },
+  { "id": "15", "title": "Cosmos", "author": "Carl Sagan", "description": "Space science", "category": "Science", "available_quantity": 6, "image_url": "https://covers.openlibrary.org/b/id/240727-L.jpg" }
 ]

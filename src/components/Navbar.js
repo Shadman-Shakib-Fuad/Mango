@@ -21,16 +21,16 @@ export default function Navbar() {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow px-6">
+    <div className="navbar bg-base-100 shadow px-6 fixed top-0 left-0 w-full z-50">
 
-      {/* LEFT LOGO */}
+      {}
       <div className="flex-1">
         <Link href="/" className="text-2xl font-bold text-primary">
           📚 Mango Library
         </Link>
       </div>
 
-      {/* RIGHT MENU */}
+      {}
       <div className="flex gap-3 justify-end">
         {navItem("/", "Home")}
         {navItem("/books", "All Books")}

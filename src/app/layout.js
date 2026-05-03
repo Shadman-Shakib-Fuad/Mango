@@ -1,21 +1,21 @@
 import "./globals.css";
-import Providers from "../components/Providers";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
-export const metadata = {
-  title: "Mango Library",
-};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <Providers>
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </Providers>
+      <body className="flex flex-col min-h-screen">
+
+        <Navbar />
+
+        {}
+        <div className="pt-20 flex-grow">
+          {children}
+        </div>
+
+        <Footer />
+
       </body>
     </html>
   );
