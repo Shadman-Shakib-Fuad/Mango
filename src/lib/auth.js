@@ -4,8 +4,8 @@ import clientPromise from "./db";
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || "test",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "test",
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
 

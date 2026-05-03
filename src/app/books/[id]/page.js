@@ -1,48 +1,46 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import { useState } from "react";
 import booksData from "../../../data/books.json";
 
-export default function BookDetails({ params }) {
+export default function BookDetails() {
 
-  const [id, setId] = useState(null);
+  const params = useParams();
+  const id = params.id;
+
   const [books, setBooks] = useState(booksData);
-
-  useEffect(() => {
-    async function getId() {
-      const p = await params;
-      setId(p.id);
-    }
-    getId();
-  }, [params]);
 
   const book = books.find(b => b.id === id);
 
-  if (!book) {
-    return <h1 className="p-10 text-red-500">Loading...</h1>;
-  }
+  if (!book) return <h1 className="p-10 text-red-500">Book Not Found</h1>;
 
   const handleBorrow = () => {
     if (book.available_quantity > 0) {
+
       const updated = books.map(b =>
         b.id === id
           ? { ...b, available_quantity: b.available_quantity - 1 }
           : b
       );
+
       setBooks(updated);
-    } else {
-      alert("No copies left!");
+
+      const prev = JSON.parse(localStorage.getItem("borrowed")) || [];
+      localStorage.setItem("borrowed", JSON.stringify([...prev, book]));
+
+      alert("Borrowed!");
     }
   };
 
   return (
     <div className="p-10 grid md:grid-cols-2 gap-6">
-      <img src={book.image_url} className="rounded shadow" />
+
+      <img src={book.image_url} className="rounded" />
 
       <div>
         <h1 className="text-3xl font-bold">{book.title}</h1>
         <p>{book.author}</p>
-        <p className="mt-2">{book.description}</p>
 
         <p className="text-primary font-bold mt-2">
           {book.available_quantity} copies left
@@ -52,6 +50,7 @@ export default function BookDetails({ params }) {
           Borrow
         </button>
       </div>
+
     </div>
   );
 }

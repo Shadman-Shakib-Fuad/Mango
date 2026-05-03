@@ -2,19 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Navbar() {
-  const pathname = usePathname();
-  const { data: session } = useSession();
 
-  const navLink = (path, label) => (
+  const pathname = usePathname();
+
+  const navItem = (path, label) => (
     <Link
       href={path}
-      className={`px-3 py-1 rounded transition ${
+      className={`px-4 py-2 rounded-full transition ${
         pathname === path
-          ? "border-b-2 border-primary text-primary"
-          : "hover:text-primary"
+          ? "bg-primary text-white"
+          : "hover:bg-base-200"
       }`}
     >
       {label}
@@ -24,28 +23,19 @@ export default function Navbar() {
   return (
     <div className="navbar bg-base-100 shadow px-6">
 
+      {/* LEFT LOGO */}
       <div className="flex-1">
         <Link href="/" className="text-2xl font-bold text-primary">
-          🍋 Mango Library
+          📚 Mango Library
         </Link>
       </div>
 
-      <div className="flex gap-6">
-        {navLink("/", "Home")}
-        {navLink("/books", "All Books")}
-        {navLink("/profile", "My Profile")}
-      </div>
-
-      <div>
-        {session ? (
-          <button onClick={() => signOut()} className="btn btn-sm btn-error">
-            Logout
-          </button>
-        ) : (
-          <button onClick={() => signIn()} className="btn btn-primary btn-sm">
-            Login
-          </button>
-        )}
+      {/* RIGHT MENU */}
+      <div className="flex gap-3 justify-end">
+        {navItem("/", "Home")}
+        {navItem("/books", "All Books")}
+        {navItem("/borrow", "Borrow")}
+        {navItem("/profile", "Profile")}
       </div>
 
     </div>
