@@ -1,36 +1,157 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📚 Mango Library – Online Book Borrowing Platform
 
-## Getting Started
+## 🚀 Project Overview
 
-First, run the development server:
+Mango Library is a modern web application that digitizes the traditional library experience. Users can explore books, view details, and borrow them online. The platform is designed with a clean UI, responsive layout, and simple authentication system.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🌐 Live Website
+
+👉 (Add your deployed link here – Vercel/Render)
+
+---
+
+## 🎯 Purpose
+
+The goal of this project is to:
+
+* Provide a digital library experience
+* Allow users to browse and borrow books
+* Practice full-stack concepts using Next.js
+
+---
+
+## ✨ Key Features
+
+### 🔐 Authentication
+
+* User Registration (Name, Email, Photo, Password)
+* User Login & Logout
+* Authentication using Context API + LocalStorage
+
+### 🔒 Private Routes
+
+* Book Details page (only logged-in users)
+* Profile page protection
+
+### 📚 Books System
+
+* 15+ Books displayed
+* Book Details page with:
+
+  * Author
+  * Description
+  * Published Year (randomized)
+  * Rating ⭐
+  * Pages 📖
+  * Language 🌍
+  * Publisher 🏢
+* Borrow system (decreases available quantity)
+
+### 🔎 Search & Filter
+
+* Search books by title
+* Category filter (Story, Tech, Science)
+
+### 👤 User Profile
+
+* View user information
+* Update Name & Photo feature
+
+### 📦 Borrow Page
+
+* Shows all borrowed books
+* Option to clear all borrowed books
+
+### 🎨 UI/UX
+
+* Responsive design (Mobile, Tablet, Desktop)
+* Sticky Navbar
+* Custom Footer
+* Marquee animation
+* Hover effects on buttons
+
+### 🧠 Extra Section
+
+* "What Great Minds Say About Books"
+* Articles from famous personalities
+
+---
+
+## 🛠️ Technologies Used
+
+* Next.js 16 (App Router)
+* React.js
+* Tailwind CSS
+* DaisyUI
+* JavaScript (ES6)
+* LocalStorage (for data persistence)
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+ ├── app/
+ │   ├── page.js (Home)
+ │   ├── books/
+ │   ├── login/
+ │   ├── register/
+ │   ├── profile/
+ │   └── borrow/
+ │
+ ├── components/
+ │   ├── Navbar.js
+ │   ├── Footer.js
+ │   └── BookCard.js
+ │
+ ├── context/
+ │   └── AuthContext.js
+ │
+ ├── data/
+ │   └── books.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🔐 Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+(Not required for this version – using LocalStorage)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 NPM Packages Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* daisyui
+* tailwindcss
+* next
+* react
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📌 Future Improvements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Google Authentication
+* Database integration (MongoDB)
+* BetterAuth implementation
+* Real-time borrow tracking
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 👨‍💻 Author
+
+**Shadman Fuad**
+
+---
+
+## 📜 License
+
+This project is for educational purposes only.
+
+---
+
+## ⭐ Final Note
+
+This project fulfills all the core requirements of the assignment including authentication, private routes, responsive design, and interactive features.
