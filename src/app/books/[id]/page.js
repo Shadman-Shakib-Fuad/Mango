@@ -12,7 +12,13 @@ export default function BookDetails() {
 
   const book = books.find(b => b.id === id);
 
-  if (!book) return <h1 className="p-10">Book Not Found</h1>;
+  if (!book) return <h1 className="p-10 text-red-500">Book Not Found</h1>;
+
+  const publishYear = 2000 + Math.floor(Math.random() * 24);
+  const rating = (3 + Math.random() * 2).toFixed(1);
+  const pages = 150 + Math.floor(Math.random() * 400);
+  const language = ["English", "Spanish", "French"][Math.floor(Math.random() * 3)];
+  const publisher = ["Penguin", "HarperCollins", "Oxford"][Math.floor(Math.random() * 3)];
 
   const handleBorrow = () => {
     if (book.available_quantity > 0) {
@@ -28,8 +34,11 @@ export default function BookDetails() {
       const prev = JSON.parse(localStorage.getItem("borrowed")) || [];
       localStorage.setItem("borrowed", JSON.stringify([...prev, book]));
 
-      setToast("✅ Book Borrowed!");
+      setToast("✅ Book Borrowed Successfully!");
 
+      setTimeout(() => setToast(""), 2000);
+    } else {
+      setToast("❌ No copies left!");
       setTimeout(() => setToast(""), 2000);
     }
   };
@@ -37,28 +46,44 @@ export default function BookDetails() {
   return (
     <div className="p-10 grid md:grid-cols-2 gap-10">
 
-      {/* TOAST */}
+      {}
       {toast && (
         <div className="fixed top-24 right-5 bg-green-500 text-white px-4 py-2 rounded shadow">
           {toast}
         </div>
       )}
 
-      <img src={book.image_url} className="rounded-xl" />
+      {}
+      <img src={book.image_url} className="rounded-xl shadow-lg w-full" />
 
+      {}
       <div>
-        <h1 className="text-3xl font-bold">{book.title}</h1>
-        <p>{book.author}</p>
 
-        <p className="mt-3">{book.description}</p>
+        <h1 className="text-4xl font-bold mb-2">{book.title}</h1>
+        <p className="text-lg text-gray-300 mb-4">by {book.author}</p>
 
-        <p className="mt-2 text-primary">
-          {book.available_quantity} copies left
-        </p>
+        <p className="mb-6">{book.description}</p>
 
-        <button onClick={handleBorrow} className="btn btn-success mt-5">
-          Borrow
+        {}
+        <div className="bg-white/10 p-5 rounded-xl space-y-2 backdrop-blur">
+
+          <p>📅 <span className="font-semibold">Published:</span> {publishYear}</p>
+          <p>⭐ <span className="font-semibold">Rating:</span> {rating} / 5</p>
+          <p>📖 <span className="font-semibold">Pages:</span> {pages}</p>
+          <p>🌍 <span className="font-semibold">Language:</span> {language}</p>
+          <p>🏢 <span className="font-semibold">Publisher:</span> {publisher}</p>
+          <p>📦 <span className="font-semibold">Available:</span> {book.available_quantity} copies</p>
+
+        </div>
+
+        {}
+        <button
+          onClick={handleBorrow}
+          className="btn btn-success mt-6"
+        >
+          Borrow This Book
         </button>
+
       </div>
 
     </div>
