@@ -1,19 +1,26 @@
 "use client";
 
-import { useSession } from "next-auth/react";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Profile() {
-  const { data: session } = useSession();
 
-  if (!session) return <h1 className="p-10">Please login</h1>;
+  const { user } = useAuth();
+
+  if (!user) {
+    return <h1 className="p-10 text-center">Please login first</h1>;
+  }
 
   return (
-    <div className="p-10">
-      <h1 className="text-2xl font-bold">My Profile</h1>
+    <div className="p-10 text-center">
 
-      <p>Name: {session.user.name}</p>
-      <p>Email: {session.user.email}</p>
-      <img src={session.user.image} className="w-20 rounded mt-4" />
+      <img
+        src={user.photo}
+        className="w-32 h-32 rounded-full mx-auto"
+      />
+
+      <h1 className="text-3xl mt-4">{user.name}</h1>
+      <p>{user.email}</p>
+
     </div>
   );
 }

@@ -1,18 +1,28 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import booksData from "../../../data/books.json";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function BookDetails() {
 
   const { id } = useParams();
+  const router = useRouter();
+  const { user } = useAuth();
+
   const [books, setBooks] = useState(booksData);
   const [toast, setToast] = useState("");
+
+  if (!user) {
+    router.push("/login");
+    return null;
+  }
 
   const book = books.find(b => b.id === id);
 
   if (!book) return <h1 className="p-10 text-red-500">Book Not Found</h1>;
+
 
   const publishYear = 2000 + Math.floor(Math.random() * 24);
   const rating = (3 + Math.random() * 2).toFixed(1);
@@ -21,6 +31,7 @@ export default function BookDetails() {
   const publisher = ["Penguin", "HarperCollins", "Oxford"][Math.floor(Math.random() * 3)];
 
   const handleBorrow = () => {
+
     if (book.available_quantity > 0) {
 
       const updated = books.map(b =>
@@ -34,9 +45,10 @@ export default function BookDetails() {
       const prev = JSON.parse(localStorage.getItem("borrowed")) || [];
       localStorage.setItem("borrowed", JSON.stringify([...prev, book]));
 
-      setToast("✅ Book Borrowed Successfully!");
+      setToast("✅ Book Borrowed!");
 
       setTimeout(() => setToast(""), 2000);
+
     } else {
       setToast("❌ No copies left!");
       setTimeout(() => setToast(""), 2000);
@@ -54,7 +66,10 @@ export default function BookDetails() {
       )}
 
       {}
-      <img src={book.image_url} className="rounded-xl shadow-lg w-full" />
+      <img
+        src={book.image_url}
+        className="rounded-xl shadow-lg w-full"
+      />
 
       {}
       <div>
@@ -79,7 +94,7 @@ export default function BookDetails() {
         {}
         <button
           onClick={handleBorrow}
-          className="btn btn-success mt-6"
+          className="btn btn-success mt-6 hover:scale-105 transition"
         >
           Borrow This Book
         </button>

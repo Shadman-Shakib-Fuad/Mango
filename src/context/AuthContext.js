@@ -8,14 +8,14 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const savedUser = JSON.parse(localStorage.getItem("user"));
-    if (savedUser) setUser(savedUser);
+    const saved = JSON.parse(localStorage.getItem("user"));
+    if (saved) setUser(saved);
   }, []);
 
   const login = (email, password) => {
-    const savedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const found = savedUsers.find(
+    const found = users.find(
       u => u.email === email && u.password === password
     );
 

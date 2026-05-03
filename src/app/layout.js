@@ -1,20 +1,18 @@
 import "./globals.css";
-import "animate.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { AuthProvider } from "../context/AuthContext";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen">
+      <body>
 
-        <Navbar />
-
-        <div className="pt-20 flex-grow animate__animated animate__fadeIn">
+        <AuthProvider>
+          <Navbar />
           {children}
-        </div>
-
-        <Footer />
+          <Footer />
+        </AuthProvider>
 
       </body>
     </html>

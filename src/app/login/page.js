@@ -3,46 +3,53 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../../context/AuthContext";
+import Link from "next/link";
 
 export default function Login() {
+
   const { login } = useAuth();
   const router = useRouter();
 
   const [form, setForm] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
 
-  const handleLogin = () => {
-    const success = login(form.email, form.password);
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-    if (success) {
-      alert("Login Successful!");
+    const ok = login(form.email, form.password);
+
+    if (ok) {
       router.push("/");
     } else {
-      alert("Invalid credentials!");
+      setError("Invalid email or password");
     }
   };
 
   return (
-    <div className="flex justify-center mt-20">
-      <div className="card p-6 shadow w-96 bg-base-100">
-        <h2 className="text-xl font-bold">Login</h2>
+    <div className="flex justify-center items-center min-h-screen">
+      <form onSubmit={handleLogin} className="bg-white/10 p-8 rounded-xl w-96 space-y-4">
 
-        <input
-          className="input input-bordered mt-2"
-          placeholder="Email"
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        <h2 className="text-2xl font-bold text-center">Login</h2>
+
+        <input type="email" placeholder="Email"
+          className="input input-bordered w-full"
+          onChange={e => setForm({...form, email: e.target.value})}
         />
 
-        <input
-          className="input input-bordered mt-2"
-          placeholder="Password"
-          type="password"
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
+        <input type="password" placeholder="Password"
+          className="input input-bordered w-full"
+          onChange={e => setForm({...form, password: e.target.value})}
         />
 
-        <button onClick={handleLogin} className="btn btn-primary mt-4">
-          Login
-        </button>
-      </div>
+        {error && <p className="text-red-500">{error}</p>}
+
+        <button className="btn btn-primary w-full">Login</button>
+
+        <p className="text-sm text-center">
+          No account? <Link href="/register">Register</Link>
+        </p>
+
+      </form>
     </div>
   );
 }
