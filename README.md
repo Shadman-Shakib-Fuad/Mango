@@ -8,7 +8,7 @@ Mango Library is a modern web application that digitizes the traditional library
 
 ## 🌐 Live Website
 
-👉 (Add your deployed link here – Vercel/Render)
+https://mango-sage.vercel.app/
 
 ---
 
